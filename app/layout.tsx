@@ -30,6 +30,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollTopButton from "./components/ScrollTopButton";
+import VisibilityTitle from "./components/VisibilityTitle";
 
 export const metadata: Metadata = {
   title: "all4Ps | B2B Growth & Marketing Strategy Agency",
@@ -58,9 +60,10 @@ export default function RootLayout({
       <body>
         {/* ================= Header ================= */}
         <Navbar />
-
+        <VisibilityTitle />
         {/* ================= Page Content ================= */}
         <main className="pt-16">{children}</main>
+        <ScrollTopButton />
         <Footer />
       </body>
     </html>
