@@ -100,7 +100,9 @@ export default function Page() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-display font-bold mb-2">What We Do</h2>
+            <h2 className="text-4xl font-display font-bold mb-2 text-black">
+              What We Do
+            </h2>
 
             <span className="italic text-gray-500 block mb-4">
               Brand + sales enablement for deep-tech companies
@@ -141,7 +143,7 @@ export default function Page() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-display font-bold mb-4">
+            <h2 className="text-4xl font-display font-bold mb-4 text-black">
               What We Actually Do
             </h2>
             <p className="text-gray-500">
@@ -157,7 +159,7 @@ export default function Page() {
                 <Link
                   key={service.id}
                   href={`/services/${service.id}`}
-                  className="group block h-full"
+                  className="group block h-full text-black"
                 >
                   <div className="border p-8 h-full hover:border-brand-purple hover:shadow-[8px_8px_0px_0px_rgba(128,0,128,0.2)] transition-all">
                     <Icon className="w-12 h-12 text-brand-purple mb-6" />
@@ -180,7 +182,7 @@ export default function Page() {
       {/* ================= OUR APPROACH ================= */}
       <section className="py-20 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-display font-bold mb-16">
+          <h2 className="text-4xl font-display font-bold mb-16 text-white">
             Our Approach Sets Us Apart
           </h2>
 
@@ -227,7 +229,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-4xl font-display font-bold mb-2">
+              <h2 className="text-4xl font-display font-bold mb-2 text-black">
                 Success Stories
               </h2>
               <p className="text-gray-600">
@@ -270,7 +272,9 @@ export default function Page() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-2">{study.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-black">
+                    {study.title}
+                  </h3>
 
                   <p className="text-gray-600 mb-6">{study.client}</p>
 
