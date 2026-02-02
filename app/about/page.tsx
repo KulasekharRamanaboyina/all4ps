@@ -87,7 +87,7 @@ export default function AboutPage() {
       {/* ================= VALUES ================= */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-display font-bold mb-12 text-center">
+          <h2 className="text-4xl font-display font-bold mb-12 text-center text-white">
             Our “Core Values” Actually Lived
           </h2>
 
@@ -127,7 +127,7 @@ export default function AboutPage() {
       {/* ================= TEAM ================= */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-display font-bold mb-12 text-center">
+          <h2 className="text-4xl font-display font-bold mb-12 text-center text-black">
             Meet the People Actually Building Your Success
           </h2>
 

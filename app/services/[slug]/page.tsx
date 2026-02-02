@@ -170,7 +170,7 @@ export default async function ServiceDetail({ params }: PageProps) {
       {/* Bottom CTA Section */}
       <section className="bg-gray-100 py-24 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight text-black">
             {service.bottomCTA.heading}
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
