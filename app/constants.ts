@@ -288,7 +288,7 @@ export const TEAM: TeamMember[] = [
   {
     id: "9",
     name: "R.Viswa Teja",
-    role: "AI/ML Engineer",
+    role: "Automation Engineer",
     bio: "Builds things that work. Fixes things you broke.",
     sarcasticFact: "Engineering intelligence.",
     imageUrl: "/images/Team_Members/ViswaTeja.webp",
@@ -296,9 +296,9 @@ export const TEAM: TeamMember[] = [
   {
     id: "10",
     name: "C.Indra",
-    role: "Full Stack Developer",
+    role: "Automation Engineer",
     bio: "Builds things that work. Fixes things you broke.",
-    sarcasticFact: "Owns the stack, end to end.",
+    sarcasticFact: "Built to run itself.",
     imageUrl: "/images/Team_Members/indra.webp",
   },
 ];

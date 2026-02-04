@@ -8,7 +8,7 @@ type PageProps = {
 };
 
 export default async function Page({ params }: PageProps) {
-  const { id } = await params; // ✅ REQUIRED IN NEXT 16
+  const { id } = await params;
 
   const client = CASE_STUDIES.find((c) => c.id === id);
 
@@ -20,5 +20,37 @@ export default async function Page({ params }: PageProps) {
     );
   }
 
-  return <ClientPageUI client={client} />;
+  return (
+    <>
+      <ClientPageUI client={client} />
+
+      {/* ================= Case Study Schema ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CaseStudy",
+            name: `${client.client} Case Study`,
+            url: `https://www.all4ps.co/portfolio/${id}`,
+            description: client.description,
+            about: {
+              "@type": "Service",
+              name: "B2B Marketing Services",
+            },
+            provider: {
+              "@type": "Organization",
+              name: "all4Ps",
+              url: "https://www.all4ps.co",
+              logo: "https://www.all4ps.co/images/logo-black.png",
+            },
+            audience: {
+              "@type": "Audience",
+              audienceType: "B2B companies",
+            },
+          }),
+        }}
+      />
+    </>
+  );
 }

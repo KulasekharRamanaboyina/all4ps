@@ -185,6 +185,33 @@ export default async function ServiceDetail({ params }: PageProps) {
           </Link>
         </div>
       </section>
+      {/* ================= Service Schema ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: `${service.title} Services`,
+            serviceType: service.title,
+            url: `https://www.all4ps.co/services/${slug}`,
+            description:
+              service.shortDescription ||
+              `${service.title} services by all4Ps helping B2B companies drive pipeline and revenue.`,
+            provider: {
+              "@type": "Organization",
+              name: "all4Ps",
+              url: "https://www.all4ps.co",
+              logo: "https://www.all4ps.co/images/logo-black.png",
+            },
+            areaServed: "Worldwide",
+            audience: {
+              "@type": "Audience",
+              audienceType: "B2B companies, SaaS, Tech, Industrial brands",
+            },
+          }),
+        }}
+      />
     </main>
   );
 }

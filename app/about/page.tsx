@@ -145,7 +145,7 @@ export default function AboutPage() {
                   />
                 </div>
 
-                <h3 className="text-xl font-bold">{member.name}</h3>
+                <h3 className="text-xl font-bold text-black">{member.name}</h3>
                 <p className="text-brand-purple font-medium text-sm mb-2">
                   {member.role}
                 </p>
@@ -158,6 +158,26 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* ================= About Page Schema ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "About all4Ps",
+            url: "https://www.all4ps.co/about",
+            description:
+              "Learn about all4Ps, a B2B growth and marketing strategy agency helping SaaS, tech, and industrial companies drive pipeline and revenue.",
+            about: {
+              "@type": "Organization",
+              name: "all4Ps",
+              url: "https://www.all4ps.co",
+              logo: "https://www.all4ps.co/images/logo-black.png",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

@@ -312,6 +312,23 @@ export default function Page() {
           Book a 30-Minute Strategy Call
         </Link>
       </section>
+      {/* ================= WebSite Schema (Home Page Only) ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "all4Ps",
+            url: "https://www.all4ps.co",
+            publisher: {
+              "@type": "Organization",
+              name: "all4Ps",
+              url: "https://www.all4ps.co",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

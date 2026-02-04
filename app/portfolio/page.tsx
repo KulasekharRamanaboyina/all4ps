@@ -98,6 +98,26 @@ export default function Portfolio() {
           </div>
         )}
       </div>
+      {/* ================= Portfolio Collection Schema ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "all4Ps Case Studies",
+            url: "https://www.all4ps.co/portfolio",
+            description:
+              "A collection of B2B growth and marketing case studies by all4Ps showcasing real-world outcomes across SaaS, tech, and industrial companies.",
+            publisher: {
+              "@type": "Organization",
+              name: "all4Ps",
+              url: "https://www.all4ps.co",
+              logo: "https://www.all4ps.co/images/logo-black.png",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }
