@@ -298,7 +298,7 @@ export const TEAM: TeamMember[] = [
     name: "C.Indra",
     role: "Automation Engineer",
     bio: "Builds things that work. Fixes things you broke.",
-    sarcasticFact: "Built to run itself.",
+    sarcasticFact: "Build to run itself.",
     imageUrl: "/images/Team_Members/indra.webp",
   },
 ];
