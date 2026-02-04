@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollTopButton from "./components/ScrollTopButton";
 import VisibilityTitle from "./components/VisibilityTitle";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "all4Ps | B2B Growth & Marketing Strategy Agency",
@@ -27,6 +28,22 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@700;800&display=swap"
           rel="stylesheet"
         />
+        {/* ================= Google Analytics ================= */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WF2VTZ5Z21"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WF2VTZ5Z21', {
+        page_path: window.location.pathname,
+      });
+    `}
+        </Script>
       </head>
 
       <body>
