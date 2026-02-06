@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+
 import { SERVICES, ICONS_MAP, CASE_STUDIES } from "./constants";
 
 import {
@@ -11,9 +12,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+import ServicesGrid from "./components/ServicesGrid";
 import GrowthChart from "./components/GrowthChart";
 
-/* ================= SEO (NEXT.JS – 100% SERVER) ================= */
+/* ================= SEO (NEXT.JS – SERVER) ================= */
 export const metadata = {
   title: "all4Ps | B2B Growth & Marketing Strategy Agency",
   description:
@@ -92,7 +94,7 @@ export default function Page() {
           </Link>
         </div>
 
-        {/* Chart */}
+        {/* Chart (client component, hidden on mobile by CSS) */}
         <GrowthChart />
       </section>
 
@@ -139,45 +141,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ================= SERVICES ================= */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-display font-bold mb-4 text-black">
-              What We Actually Do
-            </h2>
-            <p className="text-gray-500">
-              We believe in marketing that brings clarity, direction and
-              business outcomes.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => {
-              const Icon = ICONS_MAP[service.iconName];
-              return (
-                <Link
-                  key={service.id}
-                  href={`/services/${service.id}`}
-                  className="group block h-full text-black"
-                >
-                  <div className="border p-8 h-full hover:border-brand-purple hover:shadow-[8px_8px_0px_0px_rgba(128,0,128,0.2)] transition-all">
-                    <Icon className="w-12 h-12 text-brand-purple mb-6" />
-                    <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                    <p className="text-gray-600 mb-6">
-                      {service.shortDescription}
-                    </p>
-                    <span className="flex items-center text-brand-purple font-bold">
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <ServicesGrid />
 
       {/* ================= OUR APPROACH ================= */}
       <section className="py-20 bg-black text-white">
@@ -187,39 +151,10 @@ export default function Page() {
           </h2>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="p-6 border border-gray-800 bg-gray-900/50">
-              <BarChart2 className="w-12 h-12 text-brand-purple mb-4" />
-              <h4 className="text-xl font-bold mb-2">We Prioritize ROI</h4>
-              <p className="text-gray-400 text-sm">
-                Your financial success is our core performance measure.
-              </p>
-            </div>
-
-            <div className="p-6 border border-gray-800 bg-gray-900/50">
-              <ShieldCheck className="w-12 h-12 text-brand-purple mb-4" />
-              <h4 className="text-xl font-bold mb-2">Straightforward</h4>
-              <p className="text-gray-400 text-sm">
-                We speak clearly and focus on what truly matters to your
-                business.
-              </p>
-            </div>
-
-            <div className="p-6 border border-gray-800 bg-gray-900/50">
-              <Zap className="w-12 h-12 text-brand-purple mb-4" />
-              <h4 className="text-xl font-bold mb-2">Results You Can Trust</h4>
-              <p className="text-gray-400 text-sm">
-                Reporting that provides clarity, insight, and financial
-                relevance.
-              </p>
-            </div>
-
-            <div className="p-6 border border-gray-800 bg-gray-900/50">
-              <Users className="w-12 h-12 text-brand-purple mb-4" />
-              <h4 className="text-xl font-bold mb-2">Deeply Invested</h4>
-              <p className="text-gray-400 text-sm">
-                Your success drives our direction, decisions, and effort.
-              </p>
-            </div>
+            <Feature icon={BarChart2} title="We Prioritize ROI" />
+            <Feature icon={ShieldCheck} title="Straightforward" />
+            <Feature icon={Zap} title="Results You Can Trust" />
+            <Feature icon={Users} title="Deeply Invested" />
           </div>
         </div>
       </section>
@@ -229,7 +164,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-4xl font-display font-bold mb-2 text-black">
+              <h2 className="text-4xl font-display font-bold mb-2">
                 Success Stories
               </h2>
               <p className="text-gray-600">
@@ -272,9 +207,7 @@ export default function Page() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-2 text-black">
-                    {study.title}
-                  </h3>
+                  <h3 className="text-2xl font-bold mb-2">{study.title}</h3>
 
                   <p className="text-gray-600 mb-6">{study.client}</p>
 
@@ -312,23 +245,46 @@ export default function Page() {
           Book a 30-Minute Strategy Call
         </Link>
       </section>
-      {/* ================= WebSite Schema (Home Page Only) ================= */}
+
+      {/* ================= WebSite Schema ================= */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebSite",
+            "@type": "Organization",
             name: "all4Ps",
             url: "https://www.all4ps.co",
-            publisher: {
-              "@type": "Organization",
-              name: "all4Ps",
-              url: "https://www.all4ps.co",
-            },
+            logo: "https://www.all4ps.co/favicon.ico",
+            email: "hello@all4ps.co",
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                contactType: "sales",
+                email: "hello@all4ps.co",
+                availableLanguage: ["English"],
+              },
+            ],
+            sameAs: [
+              "https://www.linkedin.com/company/all4ps",
+              "https://www.instagram.com/all4ps",
+            ],
           }),
         }}
       />
+    </div>
+  );
+}
+
+/* ===== Reusable feature block ===== */
+function Feature({ icon: Icon, title }: any) {
+  return (
+    <div className="p-6 border border-gray-800 bg-gray-900/50">
+      <Icon className="w-12 h-12 text-brand-purple mb-4" />
+      <h4 className="text-xl font-bold mb-2">{title}</h4>
+      <p className="text-gray-400 text-sm">
+        Your success drives our direction, decisions, and effort.
+      </p>
     </div>
   );
 }

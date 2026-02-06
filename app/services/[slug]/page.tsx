@@ -82,12 +82,32 @@ export default async function ServiceDetail({ params }: PageProps) {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <Link
-              href="/"
-              className="text-[#800080] hover:text-white mb-6 inline-flex items-center transition-colors font-medium"
-            >
-              <span className="mr-2">←</span> Back home
-            </Link>
+            {/* <Link
+                href="/"
+                className="text-[#800080] hover:text-white mb-6 inline-flex items-center transition-colors font-medium"
+              >
+                <span className="mr-2">←</span> Back home
+              </Link> */}
+
+            {/*  ----------------UI Breadcumb----------- */}
+
+            <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-300">
+              <ol className="flex items-center space-x-2">
+                <li>
+                  <Link href="/" className="hover:text-white">
+                    Home
+                  </Link>
+                </li>
+                <li>/</li>
+                <li>
+                  <Link href="/services" className="hover:text-white">
+                    Services
+                  </Link>
+                </li>
+                <li>/</li>
+                <li className="text-white font-medium">{service.title}</li>
+              </ol>
+            </nav>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               {service.title}
@@ -209,6 +229,36 @@ export default async function ServiceDetail({ params }: PageProps) {
               "@type": "Audience",
               audienceType: "B2B companies, SaaS, Tech, Industrial brands",
             },
+          }),
+        }}
+      />
+      {/* ================= Breadcrumb Schema ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://www.all4ps.co/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://www.all4ps.co/services",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: service.title,
+                item: `https://www.all4ps.co/services/${slug}`,
+              },
+            ],
           }),
         }}
       />

@@ -11,6 +11,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 type Props = {
   client: any;
@@ -21,6 +22,22 @@ export default function ClientPageUI({ client }: Props) {
 
   return (
     <>
+      {/* ------------------UI Breadcrumbs------------ */}
+
+      <nav aria-label="Breadcrumb" className="breadcrumb">
+        <ol className="breadcrumb-list">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>/</li>
+          <li>
+            <Link href="/portfolio">Portfolio</Link>
+          </li>
+          <li>/</li>
+          <li aria-current="page">{client.client}</li>
+        </ol>
+      </nav>
+
       {/* HERO */}
       <section className="hero">
         <div
