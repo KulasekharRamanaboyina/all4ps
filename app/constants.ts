@@ -42,6 +42,8 @@ export const SERVICES: Service[] = [
     ],
     outComesHeadingImage: "/images/services/brand-identity.webp",
     iconName: "PenTool",
+    //case studies in service page
+    caseStudyIds: ["unbox", "panchayath"],
     bottomCTA: {
       heading: "Ready to Elevate Your Brand?",
       subText: "We’re here to help you build momentum and lasting impact.",
@@ -76,6 +78,9 @@ export const SERVICES: Service[] = [
     ],
     outComesHeadingImage: "/images/services/marketing-strategy.webp",
     iconName: "PieChart",
+    //for case studies in service page
+    caseStudyIds: ["motherson", "anscer", "kloudlite"],
+
     bottomCTA: {
       heading: "Ready to Elevate Your Brand?",
       subText: "We’re here to help you build momentum and lasting impact.",
@@ -109,6 +114,9 @@ export const SERVICES: Service[] = [
     ],
     outComesHeadingImage: "/images/services/growth-marketing.webp",
     iconName: "TrendingUp",
+    //for case studies in service page
+    caseStudyIds: ["xpstays", "synergy"],
+
     bottomCTA: {
       heading: "Ready for What’s Next?",
       subText:
@@ -143,6 +151,9 @@ export const SERVICES: Service[] = [
     ],
     outComesHeadingImage: "/images/services/content-marketing.webp",
     iconName: "Megaphone",
+    //for casestudies in service page
+    caseStudyIds: ["anzo", "kloudlite"],
+
     bottomCTA: {
       heading: "Ready to Improve Your Message?",
       subText: "We craft content that connects with the right people.",
@@ -177,6 +188,9 @@ export const SERVICES: Service[] = [
     ],
     outComesHeadingImage: "/images/services/seo-sem.webp",
     iconName: "Search",
+    //for casestudies in service page
+    caseStudyIds: ["synergy", "anzo"],
+
     bottomCTA: {
       heading: "Ready to Capture High-Intent Traffic?",
       subText: "We position you where your audience is searching.",
@@ -316,7 +330,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 As the business moved toward commercializing its robotics solutions and expanding globally, it needed a clearly defined go-to-market strategy to establish positioning, identify target customer segments, and enable sustainable external growth.`,
     challengeImage: "/images/portfolio/motherson.webp",
     industry: "Robotics",
-    title: "We Helped Their Marketing Work Better.",
+    title: "We helped their marketing work better.",
     result: "FY26 GTM Strategy Launched",
     category: "GTM & Marketing Strategy",
     performanceMetrics: [
@@ -517,7 +531,7 @@ As the business moved toward commercializing its robotics solutions and expandin
       "needed to strengthen its online presence and improve visibility in a competitive industrial automation market. The engagement focused on leveraging content marketing to build credibility, enhance discoverability, and attract relevant decision-makers, ultimately supporting sustained brand awareness and qualified lead generation.",
     challengeImage: "/images/portfolio/anzo.webp",
     industry: "Robotics",
-    title: "Empowering Teams to Build Sustainable Digital Visibility",
+    title: "Empowering teams to build sustainable digital visibility",
     result: "~30% uplift in social & web traffic",
     category: "Content Marketing",
     performanceMetrics: [
@@ -582,7 +596,7 @@ As the business moved toward commercializing its robotics solutions and expandin
       "needed to build a strong and credible brand presence while adopting an integrated marketing approach to support early-stage growth. The engagement focused on clarifying positioning, aligning messaging across channels, and creating consistent visibility to drive awareness, adoption, and long-term growth.",
     challengeImage: "/images/portfolio/kloudlite.webp",
     industry: "B2B SaaS platform",
-    title: "Built Visibility, Credibility, and a Strong Developer Ecosystem",
+    title: "Built visibility, credibility, and a strong developer ecosystem",
     result: "Converted high-value leads",
     category: "End to End Marketing",
     performanceMetrics: [
@@ -673,7 +687,7 @@ As the business moved toward commercializing its robotics solutions and expandin
       },
     ],
     industry: "Home Healthcare",
-    title: "Driving Local Lead Growth for Franchises",
+    title: "Driving local lead growth for franchises",
     result: "Google calls grew to ~100 per unit",
     category: "SEO & SEM",
     pillars: [
@@ -737,7 +751,7 @@ As the business moved toward commercializing its robotics solutions and expandin
       },
     ],
     industry: "Hospitality & Travel",
-    title: "Festive Campaigns with Strong ROI",
+    title: "Festive campaigns with strong ROI",
     result: "ROAS: ~75%",
     category: " Performance Marketing",
     pillars: [
@@ -801,7 +815,7 @@ As the business moved toward commercializing its robotics solutions and expandin
       },
     ],
     industry: "GovTech / Civic Engagement",
-    title: "Digital Adoption for Citizen Engagement",
+    title: "Digital adoption for citizen engagement",
     result: "1,000 app installs",
     category: "Social Media",
     pillars: [

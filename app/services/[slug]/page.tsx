@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
 import { CheckCircle, BarChart, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
-// Imports from your project files
-import { SERVICES, ICONS_MAP } from "@/app/constants";
+import { SERVICES, ICONS_MAP, CASE_STUDIES } from "@/app/constants";
 import { Service } from "@/app/types";
 
 interface PageProps {
@@ -70,6 +70,11 @@ export default async function ServiceDetail({ params }: PageProps) {
 
   const Icon =
     ICONS_MAP[service.iconName as keyof typeof ICONS_MAP] || BarChart;
+  //  Fetch related case studies automatically
+  const relatedCaseStudies =
+    service.caseStudyIds
+      ?.map((id) => CASE_STUDIES.find((cs) => cs.id === id))
+      .filter(Boolean) || [];
 
   return (
     <main className="min-h-screen selection:bg-[#800080] selection:text-white">
@@ -186,6 +191,77 @@ export default async function ServiceDetail({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* =================  Case Studies ================= */}
+      {relatedCaseStudies.length > 0 && (
+        <section className="bg-black text-white py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Heading */}
+
+            <div className="max-w-2xl mb-14">
+              <p className="text-[#800080] font-semibold mb-4 text-base md:text-lg tracking-[0.08em] ">
+                Proof of execution
+              </p>
+
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Where this strategy has already worked
+              </h2>
+
+              <p className="text-gray-400 mt-4 text-lg leading-relaxed">
+                These engagements demonstrate how our approach translates into
+                measurable business outcomes.
+              </p>
+            </div>
+
+            {relatedCaseStudies.map((cs: any, index: number) => (
+              <div
+                key={cs.id}
+                className={`grid md:grid-cols-2 gap-16 items-center mb-28 last:mb-0 ${
+                  index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
+                }`}
+              >
+                {/* IMAGE */}
+                <div className="relative group">
+                  <Link
+                    href={`/portfolio/${cs.id}`}
+                    className="block overflow-hidden rounded-2xl border border-white/10"
+                  >
+                    <img
+                      src={cs.imageUrl}
+                      alt={cs.client}
+                      loading="lazy"
+                      className="w-full h-[360px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </Link>
+                </div>
+
+                {/* CONTENT */}
+                <div className="space-y-6 max-w-xl">
+                  <span className="text-[#800080] font-semibold text-lg">
+                    Case Study
+                  </span>
+
+                  <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                    {cs.title}
+                  </h2>
+
+                  <p className="text-gray-400 text-lg leading-relaxed">
+                    {cs.description.substring(0, 180)}...
+                  </p>
+
+                  <Link
+                    href={`/portfolio/${cs.id}`}
+                    className="inline-flex items-center gap-3 bg-[#800080] text-white px-7 py-3 font-semibold shadow-lg hover:bg-white hover:text-black transition-all duration-300"
+                  >
+                    Read Case Study
+                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Bottom CTA Section */}
       <section className="bg-gray-100 py-24 text-center">

@@ -19,6 +19,9 @@ export interface Service {
     label: string;
     link: string; // always /contact
   };
+
+  // Case studies in services
+  caseStudyIds?: string[];
 }
 
 export interface TeamMember {
@@ -87,4 +90,11 @@ export interface BlogPost {
   readTime: string;
   category: string;
   imageUrl: string;
+}
+export interface ServiceCaseStudyPreview {
+  id: string;
+  title: string;
+  imageUrl: string;
+  link: string;
+  category: string;
 }
