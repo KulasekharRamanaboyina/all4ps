@@ -164,10 +164,14 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-4xl font-display font-bold mb-2">
+              {/* <h2 className="text-4xl font-display font-bold mb-2"> */}
+              {/* Changed to text-gray-900 for maximum contrast */}
+              <h2 className="text-4xl font-display font-bold mb-2 text-gray-900">
                 Success Stories
               </h2>
-              <p className="text-gray-600">
+              {/* <p className="text-gray-600"> */}
+              {/* Changed text-gray-600 to text-gray-800 for better visibility */}
+              <p className="text-gray-800">
                 Together, we helped them scale impact, reputation, and customer
                 trust.
               </p>
@@ -207,9 +211,16 @@ export default function Page() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-2">{study.title}</h3>
+                  {/* <h3 className="text-2xl font-bold mb-2">{study.title}</h3>
 
-                  <p className="text-gray-600 mb-6">{study.client}</p>
+                  <p className="text-gray-600 mb-6">{study.client}</p> */}
+                  {/* Added text-gray-900 here */}
+                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                    {study.title}
+                  </h3>
+
+                  {/* Changed text-gray-600 to text-gray-700 */}
+                  <p className="text-gray-700 mb-6">{study.client}</p>
 
                   <Link
                     href={`/portfolio/${study.id}`}
