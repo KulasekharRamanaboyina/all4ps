@@ -24,9 +24,32 @@ const manrope = Manrope({
 
 /* ================= METADATA ================= */
 export const metadata: Metadata = {
+  metadataBase: new URL("https://all4ps.co"),
+
   title: "all4Ps | B2B Growth & Marketing Strategy Agency",
   description:
     "We help SaaS, tech, and industrial companies drive pipeline and revenue through intentional B2B marketing.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "all4Ps | B2B Growth & Marketing Strategy Agency",
+    description:
+      "We help SaaS, tech, and industrial companies drive pipeline and revenue through intentional B2B marketing.",
+    url: "https://all4ps.co",
+    siteName: "all4Ps",
+    type: "website",
+    images: [
+      {
+        url: "https://all4ps.co/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
   icons: {
     icon: "/favicon.png",
   },
@@ -39,26 +62,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
-      <head>
+      <body className="font-sans">
         {/* ================= Google Analytics ================= */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WF2VTZ5Z21"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
 
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-WF2VTZ5Z21', {
-              page_path: window.location.pathname,
-            });
-          `}
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WF2VTZ5Z21');
+  `}
         </Script>
-      </head>
 
-      <body className="font-sans">
         {/* ================= Header ================= */}
         <Navbar />
         <VisibilityTitle />
@@ -70,15 +89,18 @@ export default function RootLayout({
         <Footer />
 
         {/* ================= Organization Schema ================= */}
-        <script
+
+        <Script
+          id="organization-schema"
           type="application/ld+json"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               name: "all4Ps",
-              url: "https://www.all4ps.co",
-              logo: "https://www.all4ps.co/images/logo-black.png",
+              url: "https://all4ps.co",
+              logo: "https://all4ps.co/images/logo-black.png",
               description:
                 "all4Ps is a B2B growth and marketing strategy agency helping SaaS, tech, and industrial companies drive pipeline and revenue.",
               contactPoint: {
