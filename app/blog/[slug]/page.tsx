@@ -123,85 +123,87 @@ export default async function BlogPost({
   };
 
   return (
-    <article className="max-w-[760px] mx-auto py-20 px-6">
-      {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-[#800080]">
-        {post.title}
-      </h1>
+    <article className="bg-white min-h-screen">
+      <div className="max-w-[760px] mx-auto py-20 px-6">
+        {/* Title */}
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-[#800080]">
+          {post.title}
+        </h1>
 
-      {/* Date + Reading Time */}
-      {post.publishedAt && (
-        <p className="text-gray-500 mb-8">
-          {new Date(post.publishedAt).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}{" "}
-          • {readingTime} min read
-        </p>
-      )}
+        {/* Date + Reading Time */}
+        {post.publishedAt && (
+          <p className="text-gray-500 mb-8">
+            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}{" "}
+            • {readingTime} min read
+          </p>
+        )}
 
-      {/* Hero Image */}
-      {post.mainImage && (
-        <Image
-          src={urlFor(post.mainImage).width(1600).url()}
-          alt={post.mainImage?.alt || `${post.title} | all4Ps`}
-          width={1600}
-          height={900}
-          className="mb-12 w-full h-auto object-cover"
-        />
-      )}
+        {/* Hero Image */}
+        {post.mainImage && (
+          <Image
+            src={urlFor(post.mainImage).width(1600).url()}
+            alt={post.mainImage?.alt || `${post.title} | all4Ps`}
+            width={1600}
+            height={900}
+            className="mb-12 w-full h-auto object-cover"
+          />
+        )}
 
-      {/* Content */}
-      <div className="max-w-none">
-        <PortableText value={post.body} components={components} />
-      </div>
+        {/* Content */}
+        <div className="max-w-none">
+          <PortableText value={post.body} components={components} />
+        </div>
 
-      {/* CTA */}
-      <div className="mt-16 p-8 bg-black text-white rounded-xl text-center">
-        <p className="text-lg mb-4">
-          At <span className="font-semibold">all4Ps</span>, we help B2B tech
-          companies build marketing strategies that actually convert.
-        </p>
-        <a
-          href="/contact"
-          className="inline-block mt-2 px-6 py-3 bg-[#800080] text-white font-semibold rounded-md hover:opacity-90 transition"
-        >
-          Book a Strategy Call →
-        </a>
-      </div>
+        {/* CTA */}
+        <div className="mt-16 p-8 bg-black text-white rounded-xl text-center">
+          <p className="text-lg mb-4">
+            At <span className="font-semibold">all4Ps</span>, we help B2B tech
+            companies build marketing strategies that actually convert.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block mt-2 px-6 py-3 bg-[#800080] text-white font-semibold rounded-md hover:opacity-90 transition"
+          >
+            Book a Strategy Call →
+          </a>
+        </div>
 
-      {/* SCHEMA */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.title,
-            datePublished: post.publishedAt,
-            author: {
-              "@type": "Organization",
-              name: "all4Ps",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "all4Ps",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.all4ps.co/images/logo-black.png",
+        {/* SCHEMA */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.title,
+              datePublished: post.publishedAt,
+              author: {
+                "@type": "Organization",
+                name: "all4Ps",
               },
-            },
-            image: post.mainImage
-              ? urlFor(post.mainImage).width(1200).url()
-              : "https://www.all4ps.co/default-og.png",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": `https://www.all4ps.co/blog/${slug}`,
-            },
-          }),
-        }}
-      />
+              publisher: {
+                "@type": "Organization",
+                name: "all4Ps",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.all4ps.co/images/logo-black.png",
+                },
+              },
+              image: post.mainImage
+                ? urlFor(post.mainImage).width(1200).url()
+                : "https://www.all4ps.co/default-og.png",
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://www.all4ps.co/blog/${slug}`,
+              },
+            }),
+          }}
+        />
+      </div>
     </article>
   );
 }
