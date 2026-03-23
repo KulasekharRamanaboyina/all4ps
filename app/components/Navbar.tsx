@@ -106,7 +106,9 @@ const Navbar: React.FC = () => {
             >
               Portfolio
             </Link>
-
+            <Link href="/blog" className={navLinkClass(pathname === "/blog")}>
+              Blogs
+            </Link>
             <button
               onClick={() => navigateTo("/contact")}
               className="bg-[#800080] hover:bg-purple-700 text-white px-5 py-2 font-bold transition-all shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
@@ -177,7 +179,12 @@ const Navbar: React.FC = () => {
             >
               Portfolio
             </button>
-
+            <button
+              onClick={() => navigateTo("/blog")}
+              className="block w-full text-left px-3 py-2 hover:text-[#800080]"
+            >
+              Blogs
+            </button>
             <button
               onClick={() => navigateTo("/contact")}
               className="block w-full text-left px-3 py-2 text-[#800080] font-bold"
