@@ -44,14 +44,22 @@ const Navbar: React.FC = () => {
             className="flex-shrink-0 flex items-center cursor-pointer"
             onClick={() => navigateTo("/")}
           >
-            <Image
+            {/* <Image
               src="/images/logo-black.png"
               alt="logo"
               width={160}
               height={60}
-              style={{ height: "60px", width: "auto" }}
               priority
-            />
+            /> */}
+            <div className="w-[160px] h-[60px] relative">
+              <Image
+                src="/images/logo-black.png"
+                alt="all4Ps logo"
+                fill
+                priority
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </div>
 
           {/* ================= Desktop Menu ================= */}

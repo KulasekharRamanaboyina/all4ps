@@ -1,20 +1,22 @@
 import { MetadataRoute } from "next";
 import { client } from "@/lib/sanity";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  //  Fetch blog slugs from Sanity
-  const posts = await client.fetch(
-    `*[_type=="post"]{
+export default async function sitemap() {
+  const posts = await client.fetch(`
+    *[_type=="post"]{
       "slug": slug.current,
       _updatedAt
-    }`,
-  );
+    }
+  `);
 
-  const blogUrls = posts.map((post: any) => ({
-    url: `https://www.all4ps.co/blog/${post.slug}`,
-    lastModified: post._updatedAt,
-    priority: 0.7,
-  }));
+  const blogUrls = posts
+    .filter((post: any) => post.slug)
+    .map((post: any) => ({
+      url: `https://www.all4ps.co/blog/${post.slug}`,
+      lastModified: post._updatedAt,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
 
   return [
     // Home
@@ -100,7 +102,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: "https://www.all4ps.co/portfolio/panchayath",
       priority: 0.8,
     },
-    //  BLOGS 
+    //  BLOGS
     ...blogUrls,
   ];
 }
