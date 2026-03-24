@@ -10,7 +10,7 @@ export default async function sitemap() {
   `);
 
   const blogUrls = posts
-    .filter((post: any) => post.slug)
+    .filter((post: any) => post.slug && post.slug.trim() !== "")
     .map((post: any) => ({
       url: `https://www.all4ps.co/blog/${post.slug}`,
       lastModified: post._updatedAt,
@@ -22,85 +22,123 @@ export default async function sitemap() {
     // Home
     {
       url: "https://www.all4ps.co/",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
       priority: 1.0,
     },
 
     // Core Pages
     {
       url: "https://www.all4ps.co/about",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/services",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/portfolio",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/contact",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
 
     // Service Pages
     {
       url: "https://www.all4ps.co/services/brand-identity",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/services/marketing-strategy",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/services/growth-marketing",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/services/content-marketing",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/services/seo-sem",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.all4ps.co/services/website-services",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
 
     // Case Studies
     {
       url: "https://www.all4ps.co/portfolio/motherson",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/anscer",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/unbox",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/anzo",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/kloudlite",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/synergy",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/xpstays",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: "https://www.all4ps.co/portfolio/panchayath",
-      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     //  BLOGS
     ...blogUrls,
