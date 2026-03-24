@@ -109,6 +109,18 @@ export default async function BlogPost({
         </h2>
       ),
 
+      h3: ({ children }: any) => (
+        <h3 className="text-[22px] font-semibold mt-10 mb-3 text-purple">
+          {children}
+        </h3>
+      ),
+
+      h4: ({ children }: any) => (
+        <h4 className="text-[18px] font-medium mt-8 mb-2 text-gray-900">
+          {children}
+        </h4>
+      ),
+
       normal: ({ children }: any) => (
         <p className="text-gray-700 leading-8 mb-6 md:text-justify">
           {children}
