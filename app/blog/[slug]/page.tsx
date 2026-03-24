@@ -2,6 +2,7 @@ import { client } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { urlFor } from "@/lib/image";
+export const revalidate = 60;
 
 // ✅ METADATA (SEO ONLY)
 export async function generateMetadata({
