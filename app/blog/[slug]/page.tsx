@@ -140,6 +140,17 @@ export default async function BlogPost({
         </a>
       ),
     },
+    list: {
+      bullet: ({ children }: any) => (
+        <ul className="list-disc pl-6 space-y-2">{children}</ul>
+      ),
+    },
+
+    listItem: {
+      bullet: ({ children }: any) => (
+        <li className="text-gray-700 leading-7">{children}</li>
+      ),
+    },
   };
 
   return (
