@@ -104,27 +104,25 @@ export default async function BlogPost({
       ),
 
       h2: ({ children }: any) => (
-        <h2 className="text-[26px] font-semibold mt-14 mb-4 text-black leading-snug">
+        <h2 className="text-[26px] font-semibold mt-8 mb-4 text-[#800080] leading-snug">
           {children}
         </h2>
       ),
 
       h3: ({ children }: any) => (
-        <h3 className="text-[22px] font-semibold mt-10 mb-3 text-purple">
+        <h3 className="text-[22px] font-semibold mt-6 mb-3 text-black">
           {children}
         </h3>
       ),
 
       h4: ({ children }: any) => (
-        <h4 className="text-[18px] font-medium mt-8 mb-2 text-gray-900">
+        <h4 className="text-[18px] font-medium mt-6 mb-2 text-gray-900">
           {children}
         </h4>
       ),
 
       normal: ({ children }: any) => (
-        <p className="text-gray-700 leading-8 mb-6 md:text-justify">
-          {children}
-        </p>
+        <p className="text-gray-700 leading-8 md:text-justify">{children}</p>
       ),
     },
 
