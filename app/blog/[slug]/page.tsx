@@ -130,6 +130,15 @@ export default async function BlogPost({
       strong: ({ children }: any) => (
         <span className="font-semibold text-black">{children}</span>
       ),
+
+      link: ({ value, children }: any) => (
+        <a
+          href={value.href}
+          className="text-[#800080] underline hover:opacity-80"
+        >
+          {children}
+        </a>
+      ),
     },
   };
 
