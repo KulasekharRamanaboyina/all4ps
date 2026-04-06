@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { CheckCircle, BarChart, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import FAQSection from "@/app/components/FAQSection";
 
 import { SERVICES, ICONS_MAP, CASE_STUDIES } from "@/app/constants";
 import { Service } from "@/app/types";
@@ -70,6 +71,157 @@ export default async function ServiceDetail({ params }: PageProps) {
 
   const Icon =
     ICONS_MAP[service.iconName as keyof typeof ICONS_MAP] || BarChart;
+
+  // ===== Services FAQ's =====
+  const brandFaqs = [
+    {
+      q: "What does your brand identity service include?",
+      a: "It includes positioning, messaging, visual identity, and brand guidelines for consistency.",
+    },
+    {
+      q: "Do you handle rebranding?",
+      a: "Yes, we help both new brands and existing businesses redefine their identity.",
+    },
+    {
+      q: "How long does it take?",
+      a: "Typically 3–6 weeks depending on scope.",
+    },
+    {
+      q: "Will you define brand messaging?",
+      a: "Yes, we align messaging with your business goals and audience.",
+    },
+    {
+      q: "Do you provide brand guidelines?",
+      a: "Yes, a complete guideline document is included.",
+    },
+  ];
+
+  const marketingStrategyFaqs = [
+    {
+      q: "What does a marketing strategy include?",
+      a: "We define positioning, channels, messaging, and a clear execution roadmap.",
+    },
+    {
+      q: "Is this suitable for early-stage companies?",
+      a: "Yes, we adapt strategies based on your growth stage.",
+    },
+    {
+      q: "How long does strategy development take?",
+      a: "Usually 2–4 weeks.",
+    },
+    {
+      q: "Will you help implement the strategy?",
+      a: "Yes, we support both strategy and execution.",
+    },
+    {
+      q: "How do you measure success?",
+      a: "Through pipeline growth, leads, and conversions.",
+    },
+  ];
+
+  const growthMarketingFaqs = [
+    {
+      q: "What is growth marketing?",
+      a: "It focuses on scalable experiments across channels to drive leads and revenue.",
+    },
+    {
+      q: "How do you generate leads?",
+      a: "Through SEO, content, landing pages, and conversion optimization.",
+    },
+    {
+      q: "Is this suitable for B2B companies?",
+      a: "Yes, we specialize in B2B growth systems.",
+    },
+    {
+      q: "How soon can I see results?",
+      a: "Initial traction in 8–12 weeks.",
+    },
+    {
+      q: "Do you optimize continuously?",
+      a: "Yes, we test and improve performance regularly.",
+    },
+  ];
+
+  const contentMarketingFaqs = [
+    {
+      q: "What does content marketing include?",
+      a: "Content strategy, blogs, landing pages, and SEO-driven content.",
+    },
+    {
+      q: "Will you handle content creation?",
+      a: "Yes, from strategy to writing and optimization.",
+    },
+    {
+      q: "Is content aligned with SEO?",
+      a: "Yes, all content is optimized for search and conversions.",
+    },
+    {
+      q: "How long before results?",
+      a: "Typically 2–3 months for traction.",
+    },
+    {
+      q: "Do you create industry-specific content?",
+      a: "Yes, tailored to your niche and audience.",
+    },
+  ];
+
+  const seoFaqs = [
+    {
+      q: "How long does SEO take?",
+      a: "Most clients see results within 2–3 months, with stronger growth over time.",
+    },
+    {
+      q: "Do you guarantee rankings?",
+      a: "No guarantees, but we follow proven strategies for consistent growth.",
+    },
+    {
+      q: "What is included in SEO?",
+      a: "Keyword research, technical SEO, on-page optimization, and content.",
+    },
+    {
+      q: "Will SEO generate leads?",
+      a: "Yes, SEO drives qualified inbound traffic and leads.",
+    },
+    {
+      q: "Do you provide reports?",
+      a: "Yes, we share regular performance insights.",
+    },
+  ];
+
+  const websiteFaqs = [
+    {
+      q: "Do you build websites from scratch?",
+      a: "Yes, we build and redesign websites focused on conversions.",
+    },
+    {
+      q: "Will my website be SEO-friendly?",
+      a: "Yes, all websites follow SEO best practices.",
+    },
+    {
+      q: "How long does it take?",
+      a: "Typically 3–6 weeks.",
+    },
+    {
+      q: "Can I update the website myself?",
+      a: "Yes, we build easy-to-manage systems.",
+    },
+    {
+      q: "Do you focus on conversions?",
+      a: "Yes, every site is optimized for leads and user experience.",
+    },
+  ];
+
+  // ================= FAQs MAP =================
+  const faqsMap: any = {
+    "brand-identity": brandFaqs,
+    "marketing-strategy": marketingStrategyFaqs,
+    "growth-marketing": growthMarketingFaqs,
+    "content-marketing": contentMarketingFaqs,
+    "seo-sem": seoFaqs,
+    "website-services": websiteFaqs,
+  };
+
+  const currentFaqs = faqsMap[slug] || [];
   //  Fetch related case studies automatically
   const relatedCaseStudies =
     service.caseStudyIds
@@ -262,6 +414,8 @@ export default async function ServiceDetail({ params }: PageProps) {
           </div>
         </section>
       )}
+      {/* FAQ Section*/}
+      {currentFaqs.length > 0 && <FAQSection faqs={currentFaqs} />}
 
       {/* Bottom CTA Section */}
       <section className="bg-gray-100 py-24 text-center">

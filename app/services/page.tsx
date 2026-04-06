@@ -1,5 +1,6 @@
 import ServicesGrid from "@/app/components/ServicesGrid";
 import type { Metadata } from "next";
+import FAQSection from "@/app/components/FAQSection";
 
 /* ================= SEO METADATA ================= */
 export const metadata: Metadata = {
@@ -33,7 +34,35 @@ export const metadata: Metadata = {
     images: ["https://www.all4ps.co/images/og/marketing-strategy.jpg"],
   },
 };
-
+{
+  /* ================= FAQ's ================= */
+}
+const servicesFaqs = [
+  {
+    q: "What services does all4Ps offer?",
+    a: "We offer brand identity, marketing strategy, growth marketing, content marketing, SEO & SEM, and website services.",
+  },
+  {
+    q: "Can I choose individual services or do I need a full package?",
+    a: "You can choose individual services or combine them based on your needs.",
+  },
+  {
+    q: "Which service is right for my business?",
+    a: "It depends on your goals and growth stage. We help you decide during the discovery process.",
+  },
+  {
+    q: "Do you provide both strategy and execution?",
+    a: "Yes, we offer end-to-end support from strategy and planning to execution and optimization.",
+  },
+  {
+    q: "How long does it take to see results?",
+    a: "Most clients start seeing measurable improvements within 8–12 weeks.",
+  },
+  {
+    q: "How do we get started?",
+    a: "You can book a strategy call with us, and we’ll guide you through the next steps.",
+  },
+];
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -76,6 +105,25 @@ export default function ServicesPage() {
         title="Our Services"
         description="Explore our full suite of B2B growth, strategy, and marketing services designed to drive real business outcomes."
       />
+      {/* ================= FAQ SECTION ================= */}
+      <FAQSection faqs={servicesFaqs} />
+      {/* ================= CTA SECTION ================= */}
+      <section className="py-20 bg-[#800080] text-center px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Not sure which service is right for you?
+        </h2>
+
+        <p className="text-purple-200 mb-6">
+          Let’s discuss your goals and find the right growth approach.
+        </p>
+
+        <a
+          href="/contact"
+          className="inline-block bg-black text-white px-8 py-4 font-bold hover:bg-white hover:text-black transition"
+        >
+          Book a Strategy Call
+        </a>
+      </section>
 
       {/* ================= BREADCRUMB SCHEMA ================= */}
       <script

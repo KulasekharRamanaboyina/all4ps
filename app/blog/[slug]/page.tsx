@@ -134,7 +134,7 @@ export default async function BlogPost({
       link: ({ value, children }: any) => (
         <a
           href={value.href}
-          className="text-[#800080] underline hover:opacity-80"
+          className="text-[#800080] underline hover:opacity-80 visited:text-[#800080]"
         >
           {children}
         </a>

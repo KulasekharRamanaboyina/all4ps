@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { SERVICES, ICONS_MAP, CASE_STUDIES } from "./constants";
+import FAQSection from "./components/FAQSection";
 
 import {
   ArrowRight,
@@ -47,7 +48,28 @@ export const metadata = {
     images: ["https://www.all4ps.co/images/og/home-page-v2.png"],
   },
 };
-
+const homeFaqs = [
+  {
+    q: "What does all4Ps do?",
+    a: "We help B2B companies grow their pipeline through SEO, content, and structured marketing strategies.",
+  },
+  {
+    q: "Who is all4Ps best suited for?",
+    a: "We work with B2B companies, startups, and service businesses aiming to scale inbound leads.",
+  },
+  {
+    q: "How are you different from other agencies?",
+    a: "We focus on long-term growth systems instead of short-term campaigns.",
+  },
+  {
+    q: "How soon can I see results?",
+    a: "Most clients start seeing measurable traction within 8–12 weeks.",
+  },
+  {
+    q: "Do you offer customized solutions?",
+    a: "Yes, every strategy is tailored to your business goals and audience.",
+  },
+];
 export default function Page() {
   return (
     <div>
@@ -235,7 +257,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-
+      {/* ================= FAQ ================= */}
+      <FAQSection faqs={homeFaqs} />
       {/* ================= FINAL CTA ================= */}
       <section className="py-24 bg-brand-purple text-center px-4">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">

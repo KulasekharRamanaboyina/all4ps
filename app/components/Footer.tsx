@@ -94,6 +94,11 @@ const Footer: React.FC = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/faq" className="hover:text-brand-purple">
+                  FAQ's
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -179,6 +184,7 @@ const Footer: React.FC = () => {
           <a href="/about">About</a>
           <a href="/portfolio">Portfolio</a>
           <a href="/contact">Contact</a>
+          <a href="/faq">FAQ's</a>
 
           <a href="/services/brand-identity">Brand Identity</a>
           <a href="/services/marketing-strategy">Marketing Strategy</a>
