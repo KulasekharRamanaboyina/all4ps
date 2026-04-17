@@ -14,19 +14,19 @@ export default function FAQSection({ faqs }: any) {
 
         <div className="space-y-4">
           {faqs.map((item: any, i: number) => (
-            <div key={i} className="border border-brand-purple/20 p-5 bg-white">
+            <div key={i} className="border border-brand-purple/40 p-5 bg-white">
               <button
-                className="w-full text-left flex justify-between"
+                className="w-full text-left flex justify-between items-center font-medium text-gray-900"
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 {item.q}
-                <span className="text-brand-purple">
+                <span className="text-brand-purple text-xl font-semibold">
                   {open === i ? "−" : "+"}
                 </span>
               </button>
 
               {open === i && (
-                <p className="mt-3 text-gray-600 border-l-4 border-brand-purple pl-4">
+                <p className="mt-3 text-gray-700 border-l-4 border-brand-purple pl-4">
                   {item.a}
                 </p>
               )}
